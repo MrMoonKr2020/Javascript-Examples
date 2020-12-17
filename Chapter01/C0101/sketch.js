@@ -22,10 +22,23 @@ function draw()
     stroke( 0, 255, 0 );
     line( mouseX, 0, mouseX, windowHeight );
     textSize( 18 );
-    //text( "( " + mouseY + " )", mouseX + 8, 24  );
     text( "( " + parseInt( mouseY ) + " )", mouseX + 8, 24  );
 
+    if ( touches.length >= 1 ) // 노트북 터치 패드 지원
+    {
+        let mx = touches[0].x ;
+        let my = touches[0].y ;
 
+        stroke( 255, 0, 0 );
+        line( 0, my, windowWidth, my );
+        textSize( 18 );
+        text( "( " + parseInt( mx ) + " )", 4, my - 8  );
+
+        stroke( 0, 255, 0 );
+        line( mx, 0, mx, windowHeight );
+        textSize( 18 );
+        text( "( " + parseInt( my ) + " )", mx + 8, 24  );
+    }
 }
 
 
