@@ -24,7 +24,7 @@ function draw()
     textSize( 18 );
     text( "( " + parseInt( mouseY ) + " )", mouseX + 8, 24  );
 
-    if ( touches.length >= 1 ) // 노트북 터치 패드 지원
+    /* if ( touches.length >= 1 ) // 노트북 터치 패드 지원
     {
         let mx = touches[0].x ;
         let my = touches[0].y ;
@@ -38,7 +38,7 @@ function draw()
         line( mx, 0, mx, windowHeight );
         textSize( 18 );
         text( "( " + parseInt( my ) + " )", mx + 8, 24  );
-    }
+    } */
 }
 
 

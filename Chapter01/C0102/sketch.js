@@ -1,6 +1,10 @@
 /// 인텔리센스 동작을 위한 코드
 /// <reference path="../../lib/p5.global-mode.d.ts"/>
 
+/// 원본소스 
+/// https://www.openprocessing.org/sketch/492096
+
+
 let g_MassArray         = [] ;
 let g_PositionXArray    = [] ;
 let g_PositionYArray    = [] ;
