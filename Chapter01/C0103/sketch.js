@@ -33,8 +33,10 @@ function setup()
     }
 }
 
-function keyPressed() {
-    for (var i = 0; i < g_Particles.length; i++) {
+function keyPressed() 
+{
+    for ( var i = 0 ; i < g_Particles.length ; ++i ) 
+    {
         g_Particles[i].px = random(width);
         g_Particles[i].py = random(height);
     }
@@ -43,9 +45,12 @@ function keyPressed() {
 
 function draw() 
 {
-    if (oldMouseX == mouseX && oldMouseY == mouseY) {
+    if ( oldMouseX == mouseX && oldMouseY == mouseY ) 
+    {
         count += 1;
-    } else {
+    } 
+    else 
+    {
         count = 0;
     }
     print(count);
@@ -57,12 +62,14 @@ function draw()
     var mutualRepulsionAmount = 0.5;
     var mouseMutualRepulsionAmount = 500;
 
-    for (var i = 0; i < g_Particles.length; i++) {
+    for ( var i = 0 ; i < g_Particles.length ; ++i ) 
+    {
         var ithParticle = g_Particles[i];
         var px = ithParticle.px;
         var py = ithParticle.py;
 
-        for (var j = 0; j < i; j++) {
+        for (var j = 0; j < i; j++) 
+        {
             var jthParticle = g_Particles[j];
             var qx = jthParticle.px;
             var qy = jthParticle.py;
@@ -70,7 +77,8 @@ function draw()
             var dx = px - qx;
             var dy = py - qy;
             var dh = sqrt(dx * dx + dy * dy);
-            if (dh > 1.0) {
+            if (dh > 1.0) 
+            {
                 var componentInX = dx / dh;
                 var componentInY = dy / dh;
                 var proportionToDistanceSquared = 1.0 / (dh * dh);
@@ -93,7 +101,8 @@ function draw()
         var dMouseY = py - mouseY;
         var dMouse = sqrt(dMouseX ** 2 + dMouseY ** 2);
 
-        if (dMouse < 400 && dMouse > 8) {
+        if (dMouse < 400 && dMouse > 8) 
+        {
             var mouseComponentInX = dMouseX / dMouse;
             var mouseComponentInY = dMouseY / dMouse;
             var mouseProportionToDistanceSquared = 1.0 / dMouse ** 2;
@@ -107,35 +116,36 @@ function draw()
                 mouseComponentInY *
                 mouseProportionToDistanceSquared;
 
-            if (count < 200) {
-                ithParticle.addForce(
-                    -mouseRepulsionForcex,
-                    -mouseRepulsionForcey
-                );
-            } else {
+            if (count < 200) 
+            {
+                ithParticle.addForce( -mouseRepulsionForcex, -mouseRepulsionForcey );
             }
-        } else {
+            else 
+            {
+            }
+        } 
+        else 
+        {
         }
     }
-    for (var i = 0; i < g_Particles.length; i++) {
+
+    for (var i = 0; i < g_Particles.length; i++) 
+    {
         g_Particles[i].bPeriodicBoundaries = false;
         g_Particles[i].bElasticBoundaries = true;
 
-        // var distanceFromCenter = getDistance(width/2, height/2, myParticles[i].px, myParticles[i].py)
-        // if(distanceFromCenter <= maxRadius ){
-        //   myParticles[i].update();
-        // } // update all locations
         g_Particles[i].update();
     }
 
-    for (var i = 0; i < g_Particles.length; i++) {
+    for ( var i = 0; i < g_Particles.length; i++) 
+    {
         g_Particles[i].render(); // draw all particles
     }
 
     fill(200, 200, 200);
     noStroke();
     textSize(20);
-    textFont("Avenir");
+    //textFont("Avenir");
 
     if (clicked == false) {
         text("Mouse over a dot!", margin * 12 + width / 2 - 60, height / 2);
@@ -147,7 +157,8 @@ function draw()
 
 //==========================================================
 //==========================================================
-function Particle( size ) {
+function Particle( size ) 
+{
     this.px = 0;
     this.py = 0;
     this.vx = 0;
@@ -242,7 +253,7 @@ function Particle( size ) {
         }
     };
 
-    this.render = function (size) 
+    this.render = function() 
     {
         var distance = getDistance(mouseX, mouseY, this.px, this.py);
         var factor = map(distance, 0, 75, 3, 1);
