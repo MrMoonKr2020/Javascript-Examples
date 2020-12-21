@@ -5,9 +5,10 @@
 
 // Mutual repulsion, with optional gravity
 
-var g_Particles         = [];
-var g_NumParticles      = 250;
-var maxRadius = 120;
+var g_Particles         = [];           // 파티클 배열
+var g_NumParticles      = 250;          // 파티클 갯수
+var g_MaxRadius         = 180;          // 파티클 생성시 최대 반지름
+
 var clicked = false;
 var margin = 20;
 var oldMouseX = 0;
@@ -20,15 +21,15 @@ function setup()
     createCanvas( 800, 600 );
     noStroke();
 
-    for (var i = 0; i < g_NumParticles; i++) {
-        var radius = random(0, maxRadius);
-        var angle = random(0, TWO_PI);
-        var rx = cos(angle) * radius + width / 2;
-        var ry = sin(angle) * radius + height / 2;
-        // var rx = random(width/2 - radius, width/2 + radius);
-        // var ry = random(height/2 - radius, height/2 + radius);
-        g_Particles[i] = new Particle(random(5, 7));
-        g_Particles[i].set(rx, ry);
+    for ( var i = 0 ; i < g_NumParticles ; ++i ) 
+    {
+        var radius  = random( 0, g_MaxRadius );
+        var angle   = random( 0, TWO_PI );
+        var rx      = cos(angle) * radius + width / 2;
+        var ry      = sin(angle) * radius + height / 2;
+
+        g_Particles[i] = new Particle( random( 5, 7 ) );
+        g_Particles[i].set( rx, ry );
     }
 }
 
