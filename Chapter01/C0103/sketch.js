@@ -101,7 +101,7 @@ function draw()
         var dMouseY = py - mouseY;
         var dMouse = sqrt(dMouseX ** 2 + dMouseY ** 2);
 
-        if (dMouse < 400 && dMouse > 8) 
+        if ( dMouse < 400 && dMouse > 8 ) 
         {
             var mouseComponentInX = dMouseX / dMouse;
             var mouseComponentInY = dMouseY / dMouse;
@@ -155,8 +155,11 @@ function draw()
     oldMouseY = mouseY;
 }
 
-//==========================================================
-//==========================================================
+
+/**
+ * 크기를 전달받아 파티클 객체를 생성하는 생성자 함수
+ * @param {number} size 파티클의 크기
+ */
 function Particle( size ) 
 {
     this.px = 0;
